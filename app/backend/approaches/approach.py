@@ -1,31 +1,22 @@
-import os
-from abc import ABC
-from dataclasses import dataclass
+# Import standard libraries
+import os  # Provides a way of using operating system dependent functionality
+from abc import ABC  # Abstract Base Classes (ABCs) to define abstract base classes
+from dataclasses import dataclass  # Decorator and functions for automatically adding special methods to user-defined classes
+ 
+# Import typing extensions for type hints
 from typing import (
-    Any,
-    AsyncGenerator,
-    Awaitable,
-    Callable,
-    List,
-    Optional,
-    TypedDict,
-    cast,
+    Any,  # Alias for any type
+    AsyncGenerator,  # Type hint for asynchronous generators
+    Awaitable,  # Type hint for objects that can be used in an await expression
+    Callable,  # Type hint for callable objects
+    List,  # Type hint for lists
+    Optional,  # Type hint for optional types
+    TypedDict,  # Type hint for dictionaries with a fixed set of keys
+    cast,  # Function for type casting
 )
-from urllib.parse import urljoin
-
-import aiohttp
-from azure.search.documents.aio import SearchClient
-from azure.search.documents.models import (
-    QueryCaptionResult,
-    QueryType,
-    VectorizedQuery,
-    VectorQuery,
-)
-from openai import AsyncOpenAI
-from openai.types.chat import ChatCompletionMessageParam
-
-from core.authentication import AuthenticationHelper
-from text import nonewlines
+ 
+# Import functions for URL manipulation
+from urllib.parse import urljoin  # Function for joining URLs
 
 
 @dataclass
